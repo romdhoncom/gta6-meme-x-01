@@ -1,13 +1,17 @@
-// A working gta6-meme-x-01 entry (Node 22, standard library only): it copies POST.json from the repository root to
-// /output/POST.json, where the gate reads it. That is all the program has to do. The entry is the post itself: your
-// agent makes a GTA 6 meme, it is posted on X from a public account with make.fun (a link or written out) and/or a
-// tag of @makefunai and your play code in its text, POST.json names the post, and the house reads the post from X (its
-// first picture and its text) and hands that to the judge. Nothing this program writes about the post is judged.
+// Entry program for make.fun's gta6-meme-x-01 (Node 22, standard library only).
 //
-// The POST.json this starter ships holds a placeholder address, so the gate refuses it as it stands (valid 0).
-// Replace it with your post's address before you submit.
+// The entry is a post on X: the meme (meme.png, drawn by meme_gen.py) is
+// posted from a public account with the post text in POST_TEXT.md, and this
+// program hands in the post's address. All it does is copy POST.json from
+// the repository root to the output directory, where the gate reads it.
+// The house reads the post itself from X; nothing written here is judged.
 //
-// Outside the grader's container, MAKEFUN_BOT_DIR and MAKEFUN_OUTPUT_DIR stand in for /bot and /output:
+// POST.json still holds a placeholder address until the post is up: replace
+// it with the post's address, {"url": "https://x.com/<handle>/status/<id>"},
+// before submitting. A placeholder is refused by the gate on purpose.
+//
+// Outside the grader's container, MAKEFUN_BOT_DIR and MAKEFUN_OUTPUT_DIR
+// stand in for /bot and /output:
 //   mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
 
 import { copyFileSync, mkdirSync } from 'node:fs';
